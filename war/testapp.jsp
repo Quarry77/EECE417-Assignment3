@@ -23,34 +23,34 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJAMSajyNP3bCvbUwcV7zY_rh6fHZ1Q7E&sensor=true">
     </script>    
     <script type="text/javascript"> 
-	  
+
 		function initialize() {
-					
+
 			var myLatlng = new google.maps.LatLng(37.33152141760375,-122.04732071026367);   
-		   
+
 			var mapOptions = {
 			  center: myLatlng,
 			  zoom: 12
 			};
-			
+
 			map = new google.maps.Map(document.getElementById("map-canvas"),
 			  mapOptions);		
-						
+
 			var mrkID = "0";
 			var gstBkNm = guestbookNameString; //"default";
 			var msgbox = "msgbox_";	
 			var msglist = "msglist_";
-									
+
 			var contentString  = '#' + mrkID + '<div id="content">' +  	
-			  '<div class="msglist" id="'+ msglist +'"></div>' + '</div>' +
+			  '<div class="msglist" id="'+ msglist +'0"></div>' + '</div>' +
 			  '<textarea id="'+ msgbox +'" rows="2" cols="20"></textarea>' +			  
 			  '<input type="button" value="Post" onclick="postAjaxRequest('+ 
 				"'" + msgbox + "', '" + mrkID + "', '" + gstBkNm + "', '" + msglist + "'" +')"/>';  
-			
+
 			var infowindow = new google.maps.InfoWindow({
 			  content: contentString
 			}); 
-			
+
 			var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
 			var icons = {
   				parking: {
@@ -63,20 +63,20 @@
     				icon: iconBase + 'info-i_maps.png'
   				}
 			};
-						   
+
 			var marker = new google.maps.Marker({       
 			  position: myLatlng,
 			  map: map,
 			  icon: icons['parking'].icon,			  
 			  title: 'Custom Marker!'
 			});    
-			
+
 			google.maps.event.addListener(marker, 'click', function() {
 			  selectedMarkerID = mrkID;  	
 			  infowindow.open(map, marker);
 			  getAjaxRequest();   
 			});        
-					
+
 			// Load the selected markers			
 			loadMarkers();       
 		}      
@@ -163,11 +163,11 @@ to include your name with greetings you post.</p>
     
 </div> 
 <!-- Original -->
-	        
+
     <div id="map-canvas"></div>
     
 	<br/>
 	<div>Please click on a marker to view and/or post greetings.</div>
-		
+
   </body>
 </html>
